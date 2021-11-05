@@ -32,19 +32,35 @@ header h1 {
 .card {
   background-color: #A7E9AF;
 
-  width: 117px;
-  height: 146px;
-
   border-radius: 5px;
 
   border: 1px solid #99CEA8;
+
+  display: inline-block;
+}
+
+.card-front {
+  width: 117px;
+  height: 146px;
 
   background-image: url('../img/front.png');
   background-repeat:no-repeat;
   background-size: 100px;
   background-position: center;
+}
 
-  display: inline-block;
+.card-back {
+  width: 117px;
+  height: 146px;
+
+  background-image: url('../img/explodyparrot.gif');
+  background-repeat:no-repeat;
+  background-size: 100px;
+  background-position: center;
+}
+
+.dn {
+  display: none;
 }
 
 @media (max-width: 335px) {
