@@ -11,12 +11,9 @@ header h1 {
   font-size: 56px;
   font-weight: 700;
   color: #75B79E;
-
   display: flex;
   justify-content: center;
-
   margin: 40px 0;
-
   text-align: center;
 }
 
@@ -32,26 +29,21 @@ header div {
   justify-content: center;
   flex-wrap: wrap;
   gap: 34px 34px;
-
   padding: 0 122px;
 }
 
 .card {
   background-color: #A7E9AF;
-
   border-radius: 5px;
-
   border: 1px solid #99CEA8;
-
   display: inline-block;
 }
 
 .card-front {
   width: 117px;
   height: 146px;
-
   background-image: url('../img/front.png');
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: 100px;
   background-position: center;
 }
@@ -59,9 +51,8 @@ header div {
 .card-back {
   width: 117px;
   height: 146px;
-
   background-image: url('../img/explodyparrot.gif');
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: 100px;
   background-position: center;
 }
@@ -70,15 +61,17 @@ header div {
   display: none;
 }
 
+.disable-click {
+  pointer-events: none;
+}
+
 @media (max-width: 335px) {
   header h1 {
     font-size: 36px;
   }
-
   .container {
     align-items: center;
     flex-direction: column;
-
     padding: 0;
   }
 }

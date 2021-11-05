@@ -51,7 +51,7 @@ function createDeck(amoutCards) {
   listLi.sort(comparator);
 
   for (var i = 0; i < listLi.length; i++) {
-      ul.innerHTML += listLi[i]
+    ul.innerHTML += listLi[i]
   }
 }
 
@@ -96,7 +96,11 @@ function checkIfCardsMatch(cardBack, cardFront) {
         firstCardBack.parentNode.setAttribute("onclick", "turnCard(this)");
 
         cleanCardAttributes();
+
+        document.body.classList.remove("disable-click");
       }, 1000);
+
+      document.body.classList.add("disable-click");
     }
   }
 }
