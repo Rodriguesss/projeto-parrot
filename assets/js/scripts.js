@@ -5,45 +5,53 @@ let upCard1 = null;
 let firstCardBack = null;
 let firstCardFront = null;
 let correctCardCounter = 0;
-let numberCardOnBoard = 0;
+let amoutCardsOnBoard = 0;
 let numberOfTotalPlays = 0;
 let cards = ['bobrossparrot', 'explodyparrot', 'fiestaparrot', 'metalparrot', 'revertitparrot', 'tripletsparrot', 'unicornparrot'];
 
 function start() {
   while (inited) {
-    let numberCard = prompt("Quantas cartas você quer jogar?");
+    let amoutCards = prompt("Quantas cartas você quer jogar?");
 
-    numberCardOnBoard = numberCard;
+    amoutCardsOnBoard = amoutCards;
 
-    if ((numberCard % 2 == 0) && (numberCard >= 2) && (numberCard <= 14)) {
+    if ((amoutCards % 2 == 0) && (amoutCards >= 2) && (amoutCards <= 14)) {
       inited = false;
 
-      startingSecondsId =  startingSeconds();
+      startingSecondsId = startingSeconds();
 
-      createDeck(numberCard);
+      createDeck(amoutCards);
     }
   }
 }
 
-function shuffleCard(number) {
+function shuffleCard(amountCards) {
   cards.sort(comparator);
 
-  cards.length = number / 2;
+  cards.length = amountCards / 2;
 }
 
-function createDeck(number) {
+function createDeck(amoutCards) {
   let ul = document.querySelector('.container');
 
+  let listLi = [];
+
   for (let i = 0; i < 2; i++) {
-    shuffleCard(number);
+    shuffleCard(amoutCards);
 
     for (let j = 0; j < cards.length; j++) {
-      ul.innerHTML += `
-        <li class="card" onclick="turnCard(this)" data-identifier="card">
-          <div class="card-front" data-identifier="back-face"></div>
-          <div style="background-image: url('assets/img/${cards[j]}.gif');" class="card-back dn" identifier="front-face"></div>
-        </li>`;
+      listLi.push(`
+          <li class="card" onclick="turnCard(this)" data-identifier="card">
+            <div class="card-front" data-identifier="back-face"></div>
+            <div style="background-image: url('assets/img/${cards[j]}.gif');" class="card-back dn" identifier="front-face"></div>
+          </li>`);
     }
+  }
+
+  listLi.sort(comparator);
+
+  for (var i = 0; i < listLi.length; i++) {
+      ul.innerHTML += listLi[i]
   }
 }
 
@@ -94,7 +102,7 @@ function checkIfCardsMatch(cardBack, cardFront) {
 }
 
 function checkWinCondition() {
-  if (correctCardCounter == numberCardOnBoard) {
+  if (correctCardCounter == amoutCardsOnBoard) {
     alert(`Você ganhou em ${numberOfTotalPlays} jogadas e ${seconds} segundos.`);
 
     let condition = prompt("Você quer começar um novo jogo?");
@@ -134,12 +142,12 @@ function cleanAllAttributes() {
   firstCardBack = null;
   firstCardFront = null;
   correctCardCounter = 0;
-  numberCardOnBoard = 0;
+  amoutCardsOnBoard = 0;
   numberOfTotalPlays = 0;
 }
 
 function startingSeconds() {
-  return setInterval(function() {
+  return setInterval(function () {
     seconds += 1;
     document.querySelector('header div').innerHTML = seconds;
   }, 1000);
