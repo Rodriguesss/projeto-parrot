@@ -1,5 +1,6 @@
 let inited = true;
-let seconds = 59;
+let seconds = 0;
+let secondsMsg = 0;
 let minutes = 0;
 let startingSecondsId = null;
 let upCard1 = null;
@@ -108,7 +109,7 @@ function checkIfCardsMatch(cardBack, cardFront) {
 
 function checkWinCondition() {
   if (correctCardCounter == amoutCardsOnBoard) {
-    alert(`Você ganhou em ${numberOfTotalPlays} jogadas e ${seconds} segundos.`);
+    alert(`Você ganhou em ${numberOfTotalPlays} jogadas e ${secondsMsg} segundos.`);
 
     let condition = prompt("Você quer começar um novo jogo?");
 
@@ -123,6 +124,8 @@ function checkWinCondition() {
 
       start();
     }
+
+    clearInterval(startingSecondsId);
   }
 }
 
@@ -164,6 +167,7 @@ function startingSeconds() {
     }
 
     seconds += 1;
+    secondsMsg += 1;
     document.querySelector('header span:last-child').innerHTML = secondesFixed(seconds);
   }, 1000);
 }
