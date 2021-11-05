@@ -18,8 +18,14 @@ header h1 {
 }
 
 header div {
+  position: fixed;
+  top: 10px;
+  right: 50%;
+}
+
+header span {
   font-family: 'Roboto', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: black;
 }

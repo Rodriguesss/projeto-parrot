@@ -1,5 +1,6 @@
 let inited = true;
-let seconds = 0;
+let seconds = 59;
+let minutes = 0;
 let startingSecondsId = null;
 let upCard1 = null;
 let firstCardBack = null;
@@ -142,6 +143,7 @@ function cleanCardAttributes() {
 function cleanAllAttributes() {
   inited = true;
   seconds = 0;
+  minutes = 0;
   upCard1 = null;
   firstCardBack = null;
   firstCardFront = null;
@@ -152,9 +154,34 @@ function cleanAllAttributes() {
 
 function startingSeconds() {
   return setInterval(function () {
+    if (seconds == 60) {
+      seconds = 0;
+      minutes += 1;
+
+      console.log(minutes);
+
+      document.querySelector('header span').innerHTML = minutesFixed(minutes);
+    }
+
     seconds += 1;
-    document.querySelector('header div').innerHTML = seconds;
+    document.querySelector('header span:last-child').innerHTML = secondesFixed(seconds);
   }, 1000);
+}
+
+function minutesFixed(minutes) {
+  if (minutes < 10) {
+    return "0" + minutes;
+  } else {
+    return minutes;
+  }
+}
+
+function secondesFixed(seconds) {
+  if (seconds < 10) {
+    return "0" + seconds;
+  } else {
+    return seconds;
+  }
 }
 
 function comparator() {
