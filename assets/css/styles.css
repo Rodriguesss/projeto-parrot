@@ -20,6 +20,13 @@ header h1 {
   text-align: center;
 }
 
+header div {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: black;
+}
+
 .container {
   display: flex;
   justify-content: center;
