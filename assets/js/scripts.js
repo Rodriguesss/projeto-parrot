@@ -153,6 +153,7 @@ function cleanAllAttributes() {
   correctCardCounter = 0;
   amoutCardsOnBoard = 0;
   numberOfTotalPlays = 0;
+  cards = ['bobrossparrot', 'explodyparrot', 'fiestaparrot', 'metalparrot', 'revertitparrot', 'tripletsparrot', 'unicornparrot'];
 }
 
 function startingSeconds() {
@@ -160,8 +161,6 @@ function startingSeconds() {
     if (seconds == 60) {
       seconds = 0;
       minutes += 1;
-
-      console.log(minutes);
 
       document.querySelector('header span').innerHTML = minutesFixed(minutes);
     }
