@@ -43,10 +43,10 @@ function createDeck(amoutCards) {
 
     for (let j = 0; j < cards.length; j++) {
       listLi.push(`
-          <li class="card" onclick="turnCard(this)" data-identifier="card">
-            <div class="card-front" data-identifier="back-face"></div>
-            <div style="background-image: url('assets/img/${cards[j]}.gif');" class="card-back dn" identifier="front-face"></div>
-          </li>`);
+        <li class="card" onclick="turnCard(this)" data-identifier="card">
+          <div class="card-front face" data-identifier="back-face"></div>
+          <div style="background-image: url('assets/img/${cards[j]}.gif');" class="card-back dn face" identifier="front-face"></div>
+        </li>`);
     }
   }
 
