@@ -17,7 +17,7 @@ function start() {
 
     amoutCardsOnBoard = amoutCards;
 
-    if ((amoutCards % 2 == 0) && (amoutCards >= 2) && (amoutCards <= 14)) {
+    if ((amoutCards % 2 == 0) && (amoutCards >= 4) && (amoutCards <= 14)) {
       inited = false;
 
       startingSecondsId = startingSeconds();
